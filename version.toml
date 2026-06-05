@@ -4,10 +4,13 @@
 version = "0.4.0"
 cli_min_version = "0.4.0"
 
+# Template variants (see VARIANTS.md for details)
+variants = ["flat", "default", "workspace"]
+
 # Template structure
-# - service/
-#   - rust/
-#   - python/
-#   - ts/
-# - k8s/
-# - Dockerfile.tmpl
+# variants/
+#   ├── flat/          Minimal scaffold (proto + service)
+#   ├── default/       Full scaffold (+ k8s, docker, CI)
+#   └── workspace/     Monorepo with shared proto
+# k8s/                 Kubernetes manifest templates
+# Dockerfile.tmpl      Container image template
