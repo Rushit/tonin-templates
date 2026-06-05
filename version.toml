@@ -1,0 +1,13 @@
+# tonin-templates version
+# Used by tonin CLI to validate template compatibility
+
+version = "0.4.0"
+cli_min_version = "0.4.0"
+
+# Template structure
+# - service/
+#   - rust/
+#   - python/
+#   - ts/
+# - k8s/
+# - Dockerfile.tmpl
