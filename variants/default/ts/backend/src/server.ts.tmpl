@@ -3,6 +3,7 @@
 // Run codegen first: `npm install && npm run gen`.
 
 import { createServer } from "node:http2";
+import { compressionGzip } from "@connectrpc/connect";
 import { connectNodeAdapter, type ConnectRouter } from "@connectrpc/connect-node";
 // import { {{ ServiceCamel }} } from "./gen/{{ service_name }}/v1/{{ service_name }}_connect.js";
 
@@ -15,7 +16,9 @@ const routes = (router: ConnectRouter) => {
   // });
 };
 
-const server = createServer(connectNodeAdapter({ routes }));
+const server = createServer(
+  connectNodeAdapter({ routes, acceptCompression: [compressionGzip], sendCompression: compressionGzip }),
+);
 server.listen(50051, "0.0.0.0", () => {
   console.log("{{ service_name }} listening on :50051");
 });
